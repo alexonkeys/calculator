@@ -1,13 +1,23 @@
 div,
-button{
+button {
     border: 1px solid black;
+    border-radius: 5px;
 }
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@font-face{
+    font-family:'digital-7';
+    src: url('./digital-7/digital-7.ttf');
+   }
 
 #calculator-body {
     background-color: lightpink;
     display: grid;
-    width: 400px;
-    height: 500px;
+    width: 264px;
+    height: 300px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(7, 1fr);
     gap: 10px;
@@ -19,17 +29,23 @@ button{
     grid-column-start: 1;
     grid-column-end: span 4;
     grid-row-start: 1; 
-    grid-row-end: span 7;
+    grid-row-end: span 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-family: 'digital-7', sans-serif;
+    font-size: 48px;
 }
 
 #clear {
-    background-color: aquamarine;
+    background-color: lightblue;
     grid-column-start: 1;
     grid-column-end: span 2;
 }
 
 #delete {
-    background-color: chartreuse;
+    background-color: lightcoral;
     grid-column-start: 3;
     grid-column-end: span 2;
 }
+
