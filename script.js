@@ -21,19 +21,19 @@ function operate (a, b, operation){
 let value1 = 0;
 let value2 = 0;
 
-const buttons = document.querySelectorAll('button');
+const numberBtns = document.querySelectorAll('.number-btn');
 
-buttons.forEach(button => {
+numberBtns.forEach(button => {
     button.addEventListener('click', event =>{
         if (document.querySelector('#screen').textContent === '0' && event.target.className === 'number-btn'){
             document.querySelector('#screen').textContent = event.target.id;
-            value1 = event.target.id;
+            value1 = parseInt(event.target.id);
         } else if (document.querySelector('#screen').textContent !== '0' &&
         event.target.className === 'number-btn' &&
         document.querySelector('#screen').textContent.length < 11){
             document.querySelector('#screen').textContent = 
             document.querySelector('#screen').textContent + event.target.id;
-            value1 = document.querySelector('#screen').textContent + event.target.id;
+            value1 = parseInt(document.querySelector('#screen').textContent + event.target.id);
         };
     });
 });
