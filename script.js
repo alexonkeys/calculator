@@ -27,33 +27,33 @@ const opBtns = document.querySelectorAll('.op-btn');
 const eqBtn = document.querySelector('#equals');
 
 numberBtns.forEach(button => {
-    button.addEventListener('click', event =>{
-        if (document.querySelector('#screen').textContent === '0'
-        && event.target.className === 'number-btn'){
-            document.querySelector('#screen').textContent = event.target.id;
-            value1 = parseInt(event.target.id);
-        } else if (document.querySelector('#screen').textContent !== '0' 
-        && event.target.className === 'number-btn' 
-        && document.querySelector('#screen').textContent.length < 11 
-        && opClicked === null){
-            document.querySelector('#screen').textContent = 
-            document.querySelector('#screen').textContent + event.target.id;
-            value1 = parseInt(document.querySelector('#screen').textContent);
-        } else if (document.querySelector('#screen').textContent === value1.toString()  
-        && event.target.className === 'number-btn' 
-        && opClicked === ('add'||'subtract'||'multiply'||'divide')){
-            document.querySelector('#screen').textContent = event.target.id;
-            value2 = parseInt(event.target.id);
-        } else if (document.querySelector('#screen').textContent !== '0' 
-        && event.target.className === 'number-btn' 
-        && document.querySelector('#screen').textContent.length < 11 
-        && opClicked === ('add'||'subtract'||'multiply'||'divide')){
-            document.querySelector('#screen').textContent = 
-            document.querySelector('#screen').textContent + event.target.id;
-            value2 = parseInt(document.querySelector('#screen').textContent);
-        } ;
+    button.addEventListener('click', event => {
+      if (document.querySelector('#screen').textContent === '0'
+        && event.target.className === 'number-btn') {
+        document.querySelector('#screen').textContent = event.target.id;
+        value1 = parseInt(event.target.id);
+      } else if (document.querySelector('#screen').textContent !== '0'
+        && event.target.className === 'number-btn'
+        && document.querySelector('#screen').textContent.length < 11
+        && opClicked === null) {
+        document.querySelector('#screen').textContent =
+          document.querySelector('#screen').textContent + event.target.id;
+        value1 = parseInt(document.querySelector('#screen').textContent);
+      } else if (document.querySelector('#screen').textContent === value1.toString()
+        && event.target.className === 'number-btn'
+        && (opClicked === 'add' || opClicked === 'subtract' || opClicked === 'multiply' || opClicked === 'divide')) {
+        document.querySelector('#screen').textContent = event.target.id;
+        value2 = parseInt(event.target.id);
+      } else if (document.querySelector('#screen').textContent !== '0'
+        && event.target.className === 'number-btn'
+        && document.querySelector('#screen').textContent.length < 11
+        && (opClicked === 'add' || opClicked === 'subtract' || opClicked === 'multiply' || opClicked === 'divide')) {
+        document.querySelector('#screen').textContent =
+          document.querySelector('#screen').textContent + event.target.id;
+        value2 = parseInt(document.querySelector('#screen').textContent);
+      }
     });
-});
+  });
 
 opBtns.forEach(button =>{
     button.addEventListener('click', event =>{
@@ -70,7 +70,7 @@ opBtns.forEach(button =>{
 });
 
 eqBtn.addEventListener('click', event =>{
-    if (opClicked === tru && value1 !==0
+    if (opClicked === true && value1 !==0
     ){
         operate (value1, value2,)
 
