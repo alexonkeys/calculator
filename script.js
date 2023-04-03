@@ -28,6 +28,7 @@ const opBtns = document.querySelectorAll('.op-btn');
 const eqBtn = document.querySelector('#equals');
 const clearBtn = document.querySelector('#clear');
 const decBtn = document.querySelector('#decimal');
+const delBtn = document.querySelector('#delete');
 
 numberBtns.forEach(button => {
     button.addEventListener('click', event => {
@@ -93,5 +94,14 @@ decBtn.addEventListener('click', event=>{
   let screenValue = document.querySelector('#screen').textContent;
   if (!screenValue.includes('.')){
     document.querySelector ('#screen').textContent += '.';
+  }
+});
+
+delBtn.addEventListener('click',event=>{
+  let screenValue = document.querySelector('#screen').textContent;
+  if (screenValue.length > 1 ){
+    document.querySelector('#screen').textContent = screenValue.slice(0,-1);
+  } else if (screenValue.length = 1 && screenValue !== '0'){
+    document.querySelector('#screen').textContent = 0;
   }
 });
