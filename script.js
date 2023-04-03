@@ -27,27 +27,28 @@ const numberBtns = document.querySelectorAll('.number-btn');
 const opBtns = document.querySelectorAll('.op-btn');
 const eqBtn = document.querySelector('#equals');
 const clearBtn = document.querySelector('#clear');
+const decBtn = document.querySelector('#decimal');
 
 numberBtns.forEach(button => {
     button.addEventListener('click', event => {
       if (document.querySelector('#screen').textContent === '0') {
         document.querySelector('#screen').textContent = event.target.id;
-        value1 = parseInt(event.target.id);
+        value1 = parseFloat(event.target.id);
       } else if (document.querySelector('#screen').textContent !== '0'
         && document.querySelector('#screen').textContent.length < 11
         && opClicked === null) {
         document.querySelector('#screen').textContent += event.target.id;
-        value1 = parseInt(document.querySelector('#screen').textContent);
+        value1 = parseFloat(document.querySelector('#screen').textContent);
       } else if (value1 !== 0 
         && opClicked !== 0
         && value2 === 0) {
         document.querySelector('#screen').textContent = event.target.id;
-        value2 = parseInt(event.target.id);
+        value2 = parseFloat(event.target.id);
       } else if (document.querySelector('#screen').textContent !== '0'
         && document.querySelector('#screen').textContent.length < 11
         && opClicked !== 0) {
         document.querySelector('#screen').textContent += event.target.id;
-        value2 = parseInt(document.querySelector('#screen').textContent);
+        value2 = parseFloat(document.querySelector('#screen').textContent);
       }
     });
   });
@@ -86,4 +87,11 @@ clearBtn.addEventListener('click', event=>{
   result = 0;
   opClicked = null;
   document.querySelector('#screen').textContent = 0;
+});
+
+decBtn.addEventListener('click', event=>{
+  let screenValue = document.querySelector('#screen').textContent;
+  if (!screenValue.includes('.')){
+    document.querySelector ('#screen').textContent += '.';
+  }
 });
