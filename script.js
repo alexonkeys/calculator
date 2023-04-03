@@ -26,6 +26,7 @@ let result = 0;
 const numberBtns = document.querySelectorAll('.number-btn');
 const opBtns = document.querySelectorAll('.op-btn');
 const eqBtn = document.querySelector('#equals');
+const clearBtn = document.querySelector('#clear');
 
 numberBtns.forEach(button => {
     button.addEventListener('click', event => {
@@ -71,12 +72,21 @@ opBtns.forEach(button =>{
 });
 
 eqBtn.addEventListener('click', event =>{
-    if (opClicked && value1 !==0
-    && result < 99999999999){
+    if (opClicked && value1 !==0){
         result = operate(value1,value2,opClicked);
-        document.querySelector('#screen').textContent = result.toString();
-        value1 = result;
+        if (result < 99999999999){
+          document.querySelector('#screen').textContent = result.toString();
+          value1 = result;  
+        } else if(result > 99999999999){
+          document.querySelector('#screen').textContent = '> Max Digits';
+        }
     };
 });
 
-
+clearBtn.addEventListener('click', event=>{
+  value1 = 0;
+  value2 = 0;
+  result = 0;
+  opClicked = null;
+  document.querySelector('#screen').textContent = 0;
+});
