@@ -15,7 +15,11 @@ function divide (a,b){
 }
 
 function operate (a, b, operation){
+  if (b === 0){
+    document.querySelector('#screen').textContent = 'Div by 0 Err';
+  } else {
     return operation(a,b);
+  }  
 }
 
 let value1 = 0;
@@ -50,7 +54,7 @@ numberBtns.forEach(button => {
         && opClicked !== 0) {
         document.querySelector('#screen').textContent += event.target.id;
         value2 = parseFloat(document.querySelector('#screen').textContent);
-      }
+      }      
     });
   });
 
@@ -73,9 +77,12 @@ opBtns.forEach(button =>{
 eqBtn.addEventListener('click', event =>{
     if (opClicked && value1 !==0){
         result = operate(value1,value2,opClicked);
-        if (result < 99999999999){
+        if (result < 99999999999 && !(result.toString()).includes('.')){
           document.querySelector('#screen').textContent = result.toString();
           value1 = result;  
+        } else if (result < 99999999999 
+        && (result.toString()).includes('.')){
+          document.querySelector('#screen').textContent = (result.toString()).slice(0,11);
         } else if(result > 99999999999){
           document.querySelector('#screen').textContent = '> Max Digits';
         }
