@@ -36,18 +36,17 @@ numberBtns.forEach(button => {
       } else if (document.querySelector('#screen').textContent !== '0'
         && document.querySelector('#screen').textContent.length < 11
         && opClicked === null) {
-        document.querySelector('#screen').textContent =
-          document.querySelector('#screen').textContent + event.target.id;
+        document.querySelector('#screen').textContent += event.target.id;
         value1 = parseInt(document.querySelector('#screen').textContent);
-      } else if (document.querySelector('#screen').textContent === value1.toString()
-        && (opClicked === add || opClicked === subtract || opClicked === multiply || opClicked === divide)) {
+      } else if (value1 !== 0 
+        && opClicked !== 0
+        && value2 === 0) {
         document.querySelector('#screen').textContent = event.target.id;
         value2 = parseInt(event.target.id);
       } else if (document.querySelector('#screen').textContent !== '0'
         && document.querySelector('#screen').textContent.length < 11
-        && (opClicked === add || opClicked === subtract || opClicked === multiply || opClicked === divide)) {
-        document.querySelector('#screen').textContent =
-          document.querySelector('#screen').textContent + event.target.id;
+        && opClicked !== 0) {
+        document.querySelector('#screen').textContent += event.target.id;
         value2 = parseInt(document.querySelector('#screen').textContent);
       }
     });
