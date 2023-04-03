@@ -79,10 +79,14 @@ eqBtn.addEventListener('click', event =>{
         result = operate(value1,value2,opClicked);
         if (result < 99999999999 && !(result.toString()).includes('.')){
           document.querySelector('#screen').textContent = result.toString();
-          value1 = result;  
+          value1 = result;
+          opClicked = null;
+          value2 = 0;  
         } else if (result < 99999999999 
         && (result.toString()).includes('.')){
           document.querySelector('#screen').textContent = (result.toString()).slice(0,11);
+          opClicked = null;
+          value2 = 0;
         } else if(result > 99999999999){
           document.querySelector('#screen').textContent = '> Max Digits';
         }
