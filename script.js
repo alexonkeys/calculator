@@ -85,6 +85,7 @@ eqBtn.addEventListener('click', event =>{
         } else if (result < 99999999999 
         && (result.toString()).includes('.')){
           document.querySelector('#screen').textContent = (result.toString()).slice(0,11);
+          value1 = result;
           opClicked = null;
           value2 = 0;
         } else if(result > 99999999999){
